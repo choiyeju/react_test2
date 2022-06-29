@@ -1,9 +1,30 @@
 import React, { Component } from "react";
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-// import axios from 'axios';
-// import $ from 'jquery';
-// window.$ = $;
+// function LifeCycle() {
+//     return (
+//       <div className="main">
+//         <h1>LifeCycle</h1>
+//         <div>
+//             <h3>constructor</h3>
+//             <h3>getDerivedStateFromProps</h3>
+//             <h3>render</h3>
+//             <h2>componentDidMount</h2>
+//             <h2>componentDidUpdate</h2>
+//             <h2>componentWillUnmount</h2>
+//             <hr/>
+//             <h3>getDerivedStateFromProps</h3>
+//             <h3>shouldComponentUpdate</h3>
+//             <h3>render</h3>
+//             <h3>getSnapshotBeforeUpdate</h3>
+//             <h2>componentDidUpdate </h2>
+//         </div>
+//         <Link to='/'>back</Link>
+//       </div>
+//     );
+// }
+
+// export default LifeCycle;
 
 class LifeCycleSample extends Component {
   state = {
@@ -14,7 +35,6 @@ class LifeCycleSample extends Component {
   myRef = null; // ref 설정할 부분
 
   constructor(props) {
-    console.log(props)
     super(props);
     console.log("constructor 호출");
   }
@@ -103,7 +123,7 @@ function getRandomColor() {
   // 16777215 -> ffffff (16진수)
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
-class App extends Component {
+export default class LifeCycle extends Component {
   state = {
     color: "#000000",
   };
@@ -115,14 +135,29 @@ class App extends Component {
   };
   render() {
     return (
-      <div className="container">
+      <div className="main">
+        <h1>LifeCycle</h1>
         <button onClick={this.handleClick}>랜덤 색상</button>
         <ErrorBoundary>
           <LifeCycleSample color={this.state.color} />
         </ErrorBoundary>
+        <div>
+            <h3>constructor</h3>
+            <h3>getDerivedStateFromProps</h3>
+            <h3>render</h3>
+            <h2>componentDidMount</h2>
+            <h2>componentDidUpdate</h2>
+            <h2>componentWillUnmount</h2>
+            <hr/>
+            <h3>getDerivedStateFromProps</h3>
+            <h3>shouldComponentUpdate</h3>
+            <h3>render</h3>
+            <h3>getSnapshotBeforeUpdate</h3>
+            <h2>componentDidUpdate </h2>
+            <hr/>
+        </div>
+        <Link to='/'>back</Link>
       </div>
     );
   }
 }
-
-export default App;
